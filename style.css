@@ -5,7 +5,6 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 body {
     background-color: #121212;
     color: #ffffff;
@@ -173,6 +172,15 @@ footer {
     text-align: center;
 }
 
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    background-color: #ff3b30;
+    border-top: 2px solid #d1d1d1;
+}
+
 .autores {
     margin-bottom: 15px;
     font-size: 0.95rem;
@@ -184,4 +192,92 @@ footer {
     font-size: 0.85rem;
     color: #888888;
     font-weight: bold;
+}
+
+/* TÍTULO BRANCO IGUAL AO FIGMA */
+.titulo-atividades-branco {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 25px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.titulo-atividades-branco h2 {
+    color: #000000;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+/* JANELA DO CARROSSEL */
+.carrossel-janela {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* TRILHO ANIMADO AUTOMATICAMENTE SEM JS */
+.carrossel-trilho {
+    display: flex;
+    gap: 15px;
+    /* 12s = 3 segundos para cada um dos 4 cards */
+    animation: deslizarCarrossel 12s infinite ease-in-out; 
+}
+
+/* Pausa a animação se o usuário colocar o dedo ou mouse em cima */
+.carrossel-trilho:hover {
+    animation-play-state: paused;
+}
+
+/* CADA CARD INDIVIDUAL */
+.card-atividade {
+    min-width: 360px;
+    height: 280px;
+    background-color: #d93829;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-atividade img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-atividade span {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding-top: 4px;
+}
+
+/* LINHA DO TEMPO DA ANIMAÇÃO (A CADA 3 SEGUNDOS) */
+@keyframes deslizarCarrossel {
+    /* Segundos 0 a 2.5: Fica parado no Card 1 */
+    0%, 20% {
+        transform: translateX(0);
+    }
+    /* Segundos 3 a 5.5: Desliza e para no Card 2 (-225px) */
+    25%, 45% {
+        transform: translateX(-225px);
+    }
+    /* Segundos 6 a 8.5: Desliza e para no Card 3 (-450px) */
+    50%, 70% {
+        transform: translateX(-450px);
+    }
+    /* Segundos 9 a 11.5: Desliza e para no Card 4 (-675px) */
+    75%, 95% {
+        transform: translateX(-675px);
+    }
+    /* Segundo 12: Volta suavemente para o início */
+    100% {
+        transform: translateX(0);
+    }
 }
